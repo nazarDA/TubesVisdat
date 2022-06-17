@@ -10,7 +10,8 @@ from scripts.line2 import line_death
 from scripts.dot import dotdot
 from scripts.vbar import verticalbar
 
-df = pd.read_csv('data/copid.csv')
+df = pd.read_csv(join(dirname(__file__), 'data', 'copid.csv'), 
+	                                          index_col=0)
 mask = (df['date'] >= '2021-01-01') & (df['date'] <= '2021-12-31')
 df_use = df.loc[mask]
 df_use = df_use.reset_index(drop=True)
